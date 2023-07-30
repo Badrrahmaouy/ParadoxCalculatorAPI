@@ -2,10 +2,7 @@ package com.example.restservice;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class CalculatorController {
@@ -15,6 +12,7 @@ public class CalculatorController {
 		return "Hello, World!";
 	}
 
+	@CrossOrigin(origins = "http://localhost:3000")
 	@PostMapping("/calculate")
 	public ResponseEntity<String> calculateExpression(@RequestBody String expression) {
 		Calculator calculator = new Calculator();
